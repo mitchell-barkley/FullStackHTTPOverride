@@ -5,11 +5,11 @@ const actorsDal = require('../services/pg.actors.dal')
 
 // https://localhost:3000/actors/
 router.get('/', async (req, res) => {
-    // const theActors = [
-    //     {first_name: 'Youn', last_name: 'Yuh-jung'},
-    //     {first_name: 'Laura', last_name: 'Dern'},
-    //     {first_name: 'Regina', last_name: 'King'}
-    // ];
+    const theActors = [
+        {first_name: 'Youn', last_name: 'Yuh-jung'},
+        {first_name: 'Laura', last_name: 'Dern'},
+        {first_name: 'Regina', last_name: 'King'}
+    ];
     try {
         let theActors = await actorsDal.getActors();
         if(DEBUG) console.table(theActors);
@@ -20,9 +20,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    // const anActor = [
-    //     {first_name: 'Regina', last_name: 'King'}
-    // ];
+    const anActor = [
+        {first_name: 'Regina', last_name: 'King'}
+    ];
     try {
         const anActor = await actorsDal.getActorByActorId(req.params.id); // from postgresql
         if(DEBUG) console.log(`actors.router.get/:id ${anActor}`);
