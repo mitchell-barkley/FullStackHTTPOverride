@@ -1,12 +1,12 @@
 var router = require('express').Router();
-// const actorsDal = require('../../services/pg.actors.dal')
-const actorsDal = require('../../services/m.actors.dal')
+const actorsDal = require('../../services/pg.actors.dal')
+// const actorsDal = require('../../services/m.actors.dal')
 
 // api/actors
 router.get('/', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/actors/ GET ' + req.url);
     try {
-        let theActors = await actorsDal.getActors(); 
+        let theActors = await actorsDal.getActors();
         res.json(theActors);
     } catch {
         // log this error to an error log file.
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/actors/:id GET ' + req.url);
     try {
-        let anActor = await actorsDal.getActorByActorId(req.params.id); 
+        let anActor = await actorsDal.getActorByActorId(req.params.id);
         if (anActor.length === 0) {
             // log this error to an error log file.
             res.statusCode = 404;
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 router.post('/', async (req, res) => {
-    if(DEBUG) { 
+    if(DEBUG) {
         console.log('ROUTE: /api/actors/ POST');
         // console.log(req);
     }
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
         // log this error to an error log file.
         res.statusCode = 503;
         res.json({message: "Service Unavailable", status: 503});
-    } 
+    }
 });
 router.put('/:id', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/actors PUT ' + req.params.id);
@@ -84,11 +84,11 @@ router.delete('/:id', async (req, res) => {
     }
 });
 // // list the active api routes
-// if(DEBUG) {
-//     router.stack.forEach(function(r){
-//         if (r.route && r.route.path){
-//         console.log(r.route.path)
-//         }
-//     });
-// }
+if(DEBUG) {
+    router.stack.forEach(function(r){
+        if (r.route && r.route.path){
+        console.log(r.route.path)
+        }
+    });
+}
 module.exports = router;

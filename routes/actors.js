@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     //     {first_name: 'Regina', last_name: 'King'}
     // ];
     try {
-        let theActors = await actorsDal.getActors(); 
+        let theActors = await actorsDal.getActors();
         if(DEBUG) console.table(theActors);
         res.render('actors', {theActors});
     } catch {
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
     } catch {
         // log this error to an error log file.
         res.render('503');
-    } 
+    }
 });
 
 // PUT, PATCH, and DELETE are part of HTTP, not a part of HTML

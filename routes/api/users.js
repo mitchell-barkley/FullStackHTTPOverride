@@ -5,7 +5,7 @@ const usersDal = require('../../services/pg.users.dal')
 router.get('/', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/users/ GET ' + req.url);
     try {
-        let theUsers = await usersDal.getUsers(); 
+        let theUsers = await usersDal.getUsers();
         res.json(theUsers);
     } catch {
         // log this error to an error log file.
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/users/:id GET ' + req.url);
     try {
-        let aUser = await usersDal.getUserById(req.params.id); 
+        let aUser = await usersDal.getUserById(req.params.id);
         if (aUser.length === 0) {
             // log this error to an error log file.
             res.statusCode = 404;
@@ -38,7 +38,7 @@ const usersDal = require('../../services/pg.users.dal')
 router.get('/', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/users/ GET ' + req.url);
     try {
-        let theUsers = await usersDal.getUsers(); 
+        let theUsers = await usersDal.getUsers();
         res.json(theUsers);
     } catch {
         // log this error to an error log file.
@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     if(DEBUG) console.log('ROUTE: /api/users/:id GET ' + req.url);
     try {
-        let aUser = await usersDal.getUserById(req.params.id); 
+        let aUser = await usersDal.getUserById(req.params.id);
         if (aUser.length === 0) {
             // log this error to an error log file.
             res.statusCode = 404;
