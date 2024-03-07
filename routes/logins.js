@@ -3,11 +3,11 @@ const router = express.Router();
 const loginsDal = require('../services/pg.logins.dal')
 
 router.get('/', async (req, res) => {
-    // const theLogins = [
-    //     {id: 1, username: 'example', password: 'example'},
-    //     {id: 4, username: 'frodob', password: 'example'},
-    //     {id: 7, username: 'bilbob', password: 'example'}
-    // ];
+    const theLogins = [
+        {id: 1, username: 'example', password: 'example'},
+        {id: 4, username: 'frodob', password: 'example'},
+        {id: 7, username: 'bilbob', password: 'example'}
+    ];
     try {
         let theLogins = await loginsDal.getLogins(); 
         if(DEBUG) console.table(theLogins);
@@ -18,9 +18,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // const aLogin = [
-  //     {id: 1, username: 'example', password: 'example'}
-  // ];
+    const aLogin = [
+        {id: 1, username: 'example', password: 'example'}
+    ];
     try {
         let aLogin = await loginsDal.getLoginByLoginId(req.params.id); // from postgresql
         if (aLogin.length === 0)

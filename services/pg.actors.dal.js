@@ -4,8 +4,7 @@ const dal = require("./dvdrental_db");
 var getActors = function() {
     if(DEBUG) console.log("actors.pg.dal.getActors()");
     return new Promise(function(resolve, reject) {
-        const sql = "SELECT actor_id AS _id, first_name, last_name FROM actor \
-            ORDER BY actor_id DESC LIMIT 7;"
+        const sql = "SELECT actor_id, first_name, last_name FROM public.actor ORDER BY last_name ASC;"
         dal.query(sql, [], (err, result) => {
         if (err) {
             // logging should go here
